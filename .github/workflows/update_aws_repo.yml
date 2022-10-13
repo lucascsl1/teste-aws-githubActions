@@ -6,6 +6,8 @@ jobs:
 
   test:
     uses: lucascsl1/teste-aws-githubActions/.github/workflows/tests.yml@master
+    with:
+      config-path: '.'
 
   build_and_push:
     needs: test
