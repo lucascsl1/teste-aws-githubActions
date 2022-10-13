@@ -1,0 +1,13 @@
+name: Docker Build
+
+on: [ workflow_call ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: lucascsl1/teste-aws-githubActions/.github/workflows/tests.yml@master
+
+    - name: Docker Build
+      run: docker build -t aplicacao-treinamento .
