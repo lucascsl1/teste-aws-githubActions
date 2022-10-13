@@ -1,0 +1,24 @@
+name: Deploy AWS
+
+on: [ push ]
+
+jobs:
+
+  test:
+    uses: lucascsl1/teste-aws-githubActions/.github/workflows/tests.yml@master
+
+  build_and_push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: AWS Login
+      run: aws ecr get-login-password --region sa-east-1 | docker login -u AWS -p ${{ secrets.AWS_REPO }}
+
+    - name: Docker Build
+      run: docker build -t aplicacao_treinamento .
+
+    - name: Docker Tag
+      run: docker tag aplicacao_treinamento:latest ${{ secrets.AWS_REPO }}/aplicacao_treinamento:latest
+      
+    - name: Docker Push
+      run: docker push ${{ secrets.AWS_REPO }}/aplicacao_treinamento:latest
