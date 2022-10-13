@@ -1,0 +1,18 @@
+name: Tests
+
+on: [ push, pull_request ]
+    
+jobs:
+  build_test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up JDK
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+
+    - name: Maven Install
+      run: mvn install
