@@ -8,6 +8,7 @@ jobs:
     uses: lucascsl1/teste-aws-githubActions/.github/workflows/tests.yml@master
 
   build_and_push:
+    needs: test
     runs-on: ubuntu-latest
 
     steps:
