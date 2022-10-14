@@ -40,3 +40,6 @@ jobs:
       
     - name: Docker Push
       run: docker push 439246771946.dkr.ecr.sa-east-1.amazonaws.com/aplicacao_treinamento:latest
+      
+    - name: AWS ECS Update
+      run: aws ecs update-service --cluster AplicacaoTreinamentoCluster --service AplicacaoTreinamentoService --force-new-deployment --region sa-east-1
