@@ -3,7 +3,7 @@ name: Tests
 on: [ pull_request, workflow_call ]
     
 jobs:
-  build_test:
+  run_tests:
     runs-on: ubuntu-latest
 
     steps:
