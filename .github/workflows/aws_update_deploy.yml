@@ -1,6 +1,8 @@
 name: Deploy AWS
 
-on: [ push ]
+on:
+  push:
+    branches: [ master ]
 
 jobs:
 
